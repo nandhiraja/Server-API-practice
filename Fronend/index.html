@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastAPI Image Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        #uploadForm {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #imageContainer {
+            margin-top: 20px;
+        }
+        #displayedImage {
+            max-width: 500px;
+            max-height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #message {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Upload an Image to FastAPI</h1>
+
+    <form id="uploadForm" >
+        <label for="imageFile">Choose an image:</label>
+        <input type="text" id="imageFile" accept="image/*" required>
+        <button type="submit">submit</button>
+    </form>
+
+    <div id="imageContainer">
+        <h2>Uploaded Image:</h2>
+        <img id="displayedImage" src="" alt="Uploaded image will appear here">
+        <div id="message"></div>
+    </div>
+
+    <script>
+        // Get the form and other elements
+    //     const form = document.getElementById('uploadForm');
+    //     const fileInput = document.getElementById('imageFile');
+    //     const displayedImage = document.getElementById('displayedImage');
+    //     const message = document.getElementById('message');
+        
+    //     // --- This is the URL of your FastAPI backend ---
+    //     const backendUrl = "http://127.0.0.1:8000";
+
+    //     form.addEventListener('submit', async (event) => {
+    //         // Prevent the form's default submission behavior
+    //         event.preventDefault();
+
+    //         message.textContent = "Uploading...";
+
+    //         // Get the selected file
+    //         const file = fileInput.files[0];
+
+    //         // Create a FormData object to send the file
+    //         const formData = new FormData();
+    //         formData.append('file', file);
+
+    //         try {
+    //             // Send the POST request to the backend
+    //             const response = await fetch(`${backendUrl}/upload/`, {
+    //                 method: 'POST',
+    //                 body: formData,
+    //             });
+
+    //             if (response.ok) {
+    //                 const data = await response.json();
+                    
+    //                 // Construct the full URL for the image
+    //                 const imageUrl = `${backendUrl}${data.url}`;
+                    
+    //                 // Set the 'src' of the img tag to display the image
+    //                 displayedImage.src = imageUrl;
+    //                 message.textContent = "Upload successful!";
+    //             } else {
+    //                 message.textContent = "Upload failed. Please try again.";
+    //             }
+    //         } catch (error) {
+    //             console.error("Error uploading file:", error);
+    //             message.textContent = "An error occurred. Check the console.";
+    //         }
+    //     });
+    // </script>
+
+</body>
+</html>
