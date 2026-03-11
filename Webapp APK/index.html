@@ -1,0 +1,59 @@
+
+
+<!-- //html -->
+
+
+
+<!-- templates/index.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>To-Do</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;">
+    <div>
+      <h1>To-Do App</h1>
+      <small>Logged in as: <strong>{{ username }}</strong></small>
+    </div>
+    <div>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </header>
+
+  <main style="padding: 20px;">
+    <!-- Add task form (keeps category select if present in your UI) -->
+    <form action="/add" method="POST">
+      <input name="task" placeholder="New task" required>
+      <select name="category">
+        <option>Self-Care</option>
+        <option>Study/Work</option>
+        <option>Home/Errands</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+
+    <section style="margin-top:20px;">
+      <h2>Your Tasks</h2>
+      <ul>
+        {% for t in tasks %}
+        <li>
+          <form action="/toggle/{{ t['id'] }}" method="get" style="display:inline;">
+            <input type="checkbox" {% if t['done'] %}checked{% endif %} onchange="this.form.submit()">
+          </form>
+          <span style=`{% if t['done'] %}text-decoration: line-through; opacity:0.6;{% endif %} margin-left:8px;`>{{ t['name'] }} <small style="color:#888">({{ t['category'] }})</small></span>
+          <a href="/delete/{{ t['id'] }}" style="color:red; margin-left:10px;">Delete</a>
+        </li>
+        {% else %}
+        <li>No tasks yet — add one!</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

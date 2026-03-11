@@ -1,0 +1,139 @@
+
+
+/* //css */
+
+
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #333;
+}
+
+.app-container {
+  width: 95%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.add-task {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.add-task input, .add-task select, .add-task button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.add-task input {
+  width: 40%;
+  backdrop-filter: blur(10px);
+}
+
+.add-task button {
+  background: #89f7fe;
+  background: linear-gradient(90deg, #89f7fe, #66a6ff);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.add-task button:hover {
+  transform: scale(1.05);
+}
+
+.categories {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 20px;
+}
+
+.category {
+  min-width: 300px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.category:hover {
+  transform: translateY(-5px);
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.4);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.task-card:hover {
+  transform: perspective(600px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.task-card.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.task-toggle {
+  margin: 0;
+}
+
+.task-text {
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.delete-btn {
+  color: #ff6b6b;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.3);
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
